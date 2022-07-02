@@ -1,11 +1,11 @@
-var APIKey = '719120b9ddfb623ee834cf9171dff48f';
+const APIKey = '719120b9ddfb623ee834cf9171dff48f';
 
 
 // fetches data from weather API
 async function fetchWeatherJson(city) {
     // pulls all cities data available on openweather API
-    var queryCityUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIKey;
-    var jsonCity = await fetch(queryCityUrl)
+    let queryCityUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=" + APIKey;
+    let jsonCity = await fetch(queryCityUrl)
         .then(cityResponse => cityResponse.json())
         .then(json => {
             return json;
@@ -15,8 +15,8 @@ async function fetchWeatherJson(city) {
         alert("Please type a valid city, then click search. OR click on a recent search.");
     }
     // pulls all weather data available on openweather API once city is typed in and submited in ch bar
-    var queryWeatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + jsonCity[0].lat + "&lon=" + jsonCity[0].lon + "&exclude=minutely,hourly,alerts&units=imperial&appid=" + APIKey;
-    var weatherRes = await fetch(queryWeatherUrl)
+    const queryWeatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + jsonCity[0].lat + "&lon=" + jsonCity[0].lon + "&exclude=minutely,hourly,alerts&units=imperial&appid=" + APIKey;
+    let weatherRes = await fetch(queryWeatherUrl)
         .then(response => response.json())
         .then(json => {
             return json;
@@ -31,18 +31,18 @@ async function fetchWeatherJson(city) {
 
 // takes user input in search bar and runs selectedCity funtion
 function searchBtnOnClick() {
-    var city = document.getElementById("userInput").value;
+    let city = document.getElementById("userInput").value;
     selectedCity(city);
 }
 
 // pulls search history from localstorage and renders to Past searches box
 function renderHistory() {
-    var keys = Object.keys(localStorage);
-    var histories = [];
+    const keys = Object.keys(localStorage);
+    let histories = [];
     // for every city searched, it will create an object of city & date and saved in local storage as an array
-    for (var i = 0; i < keys.length; i++) {
-        var value = localStorage.getItem(keys[i]);
-        var history = {
+    for (let i = 0; i < keys.length; i++) {
+        let value = localStorage.getItem(keys[i]);
+        let history = {
             city: keys[i],
             date: value
         };
@@ -52,10 +52,10 @@ function renderHistory() {
     // will sort the past searches by most recent to oldest search
     histories.sort((a, b) => b.date - a.date);
 
-    var searchHistoryList = document.querySelector(".searchHistoryList");
+    const searchHistoryList = document.querySelector(".searchHistoryList");
     searchHistoryList.innerHTML = "";
-    for (var i = 0; i < histories.length; i++) {
-        var historyButton = document.createElement("button");
+    for (let i = 0; i < histories.length; i++) {
+        const historyButton = document.createElement("button");
         historyButton.innerHTML = histories[i].city;
         historyButton.setAttribute("onclick", "selectedCity(\"" + histories[i].city + "\")");
         searchHistoryList.appendChild(historyButton);
@@ -65,32 +65,32 @@ function renderHistory() {
 // funtion for when search button is clicked
 async function selectedCity(city) {
     // to fetch weather data from API
-    var json = await fetchWeatherJson(city);
+    let json = await fetchWeatherJson(city);
 
     // saves recent searches with date and time in order to sort past searches buttons
     localStorage.setItem(city, new Date());
 
     // telling json where to put the API data
-    var outerDiv = document.querySelector(".selectedCity");
+    const outerDiv = document.querySelector(".selectedCity");
     // prevents old searches from diplaying on page when there is a new search
     outerDiv.innerHTML = "";
 
     // creates header and date elements inside selected city div
-    var cityHeader = document.createElement("h2");
+    const cityHeader = document.createElement("h2");
 
-    var header = document.createElement("div");
+    const header = document.createElement("div");
     header.classList.add("row");
 
-    var currentWeatherImg = document.createElement("img");
+    const currentWeatherImg = document.createElement("img");
     currentWeatherImg.classList.add("customImg");
 
     // current weather data as ul elements
-    var currentWeather = document.createElement("ul");
+    const currentWeather = document.createElement("ul");
     // current weather data as list elements
-    var tempDiv = document.createElement("li");
-    var windDiv = document.createElement("li");
-    var humidityDiv = document.createElement("li");
-    var UVIndexDiv = document.createElement("li");
+    const tempDiv = document.createElement("li");
+    const windDiv = document.createElement("li");
+    const humidityDiv = document.createElement("li");
+    const UVIndexDiv = document.createElement("li");
 
     // gives UV index li an ID to change the colors of conditions below
     UVIndexDiv.setAttribute("id", "UVRating");
@@ -117,7 +117,7 @@ async function selectedCity(city) {
 
 
     // if else loop for UV index if conditions are favorable, moderate, or severe
-    var uvRating = json.current.uvi
+    const uvRating = json.current.uvi
     if (uvRating <= 2.99) {
         document.getElementById("UVRating").style.backgroundColor = 'green';
     } else if (uvRating <= 5.99) {
@@ -135,31 +135,31 @@ async function selectedCity(city) {
     futureForecastBox.innerHTML = "";
 
     // creates div element inside future forecast box
-    var futureForecastDiv = document.createElement("div");
-    var futureForecastTitle = document.createElement("h2");
+    let futureForecastDiv = document.createElement("div");
+    const futureForecastTitle = document.createElement("h2");
     futureForecastTitle.innerHTML = "5-Day Forecast:";
 
-    var futureWeatherDiv = document.createElement("div");
+    let futureWeatherDiv = document.createElement("div");
 
     futureForecastBox.appendChild(futureForecastDiv);
     futureForecastBox.appendChild(futureWeatherDiv);
     futureForecastDiv.appendChild(futureForecastTitle);
 
     // for loop to create 5 future forecast cards
-    for (var i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 5; i++) {
         // creating 5-day future forecast div inside future forecast box
         // var futureWeather = document.createElement("div");
         // futureCards.setAttribute("id", "cards");
        
 
         // future forecast data as ul element
-        var futureCards = document.createElement("ul");
+        const futureCards = document.createElement("ul");
         // future forecast as list elements
-        var futureDate = document.createElement("h3");
-        var futureIcon = document.createElement("img");
-        var futureTemp = document.createElement("li");
-        var futureWind = document.createElement("li");
-        var futureHum = document.createElement("li");
+        const futureDate = document.createElement("h3");
+        const futureIcon = document.createElement("img");
+        const futureTemp = document.createElement("li");
+        const futureWind = document.createElement("li");
+        const futureHum = document.createElement("li");
 
         // displays the future forecast title inside future forecast box
         
