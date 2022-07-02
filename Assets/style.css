@@ -1,0 +1,219 @@
+
+body {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.mainContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-top: 10px;
+}
+
+header {
+    font-size: 50px;
+    font-weight: 800;
+    color: rgb(240, 237, 233);
+    background-color: rgb(6, 5, 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 10px 0;
+}
+
+.searchBox.cityContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding-right: 10px;
+    width: 300px;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px 10px 0 0;
+}
+
+.searchBar {
+    border-bottom: 1px black solid;
+    padding-bottom: 10px;
+    margin-right: 20px;
+}
+
+/* styles of seach button */
+.searchBtn {
+    background-color: rgb(29, 26, 159);
+    color: white;
+    border-radius: 4px;
+    font-size: 20px;
+    margin: 10px 0px;
+    padding: 3px 30px;
+}
+
+/* auto capitalizes header of city searched */
+h2 {
+    text-transform: capitalize;
+}
+
+/* styles input of search bar*/
+input {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    width: 280px;
+    text-transform: capitalize;
+}
+
+/* styles the search history box */
+.searchHistory {
+    margin: 5px;
+    padding-bottom: 10px;
+    width: 230px;
+    height: 500px;
+}
+
+/* styles all buttons in past searches */
+button {
+    background-color: rgb(29, 26, 159);
+    color: white;
+    border-radius: 4px;
+    font-size: 20px;
+    margin: 10px 0px;
+    padding: 5px 0px;
+    width: 280px;
+    text-transform: capitalize;
+}
+
+/* styles the box that shows current weather */
+.selectedCity {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border: 1px black solid;
+    background-color: gainsboro;
+    width: 100%;
+    min-height: 260px;
+}
+
+/* styles the block of list of wather info */
+.selectedCity ul {
+    list-style-type: none;
+    padding: 10px 20px 0 20px;
+    margin: 0;
+    font-size: 20px;
+}
+
+/* spaces out the list items */
+.selectedCity li {
+    padding-bottom: 8px;
+}
+
+/* styles the future forecast box */
+.futureForecast {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 20px;
+    width: 100%;
+    min-height: 200px;
+    padding: 0 10px 0 10px;
+}
+
+/* styles the 5-day forecast cards */
+.futureForecast div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* styles each block of list in each card */
+.futureForecast ul {
+    list-style-type: none;
+    padding: 10px 10px 0 0;
+    font-size: 17px;
+    margin: 0;
+    width: 180px;
+    height: 260px;
+    background-color: rgb(29, 26, 159);
+    border: 10px white solid;
+}
+
+/* styles the list items */
+.futureForecast li {
+    color: white;
+    padding: 8px 15px 6px 15px;
+    
+}
+
+/* ensures the city header and icon image are on the same line */
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-left: 15px;
+    font-size: 20px;
+    font-weight: 300;
+    flex-direction: wrap;
+}
+
+/* force selected city icon image to be 100x100 */
+.customImg {
+    width: 100px;
+    height: 100px;
+}
+
+h3 {
+    padding-left: 15px;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

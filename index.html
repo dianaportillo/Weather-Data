@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Assets/style.css">
+    <title>Weather</title>
+</head>
+
+<body>
+    <header>Weather Dashboard</header>
+    <section class="mainContainer">
+        <!-- seach container -->
+        <main class="searchBox">
+            <!-- search box -->
+            <div class="searchBar">
+                <h1>Search for a City:</h1>
+                <aside class="searchNavBox">
+                    <input type="text" placeholder="San Jose" id="userInput">
+                    <button class="searchBtn" id="searchBtn" onclick="searchBtnOnClick()">Search</button>
+                </aside>
+            </div>
+            <!-- search history box  -->
+            <div class="searchHistory">
+                <h1>Past searches:</h1>
+                <div class="searchHistoryList">
+
+                </div>
+                <!-- insert past searched from local storage using JS -->
+            </div>
+        </main>
+        <!-- city container -->
+        <main class="cityContainer">
+            <!-- current weather box -->
+            <section class="selectedCity">
+                <!-- insert selected city name and today's date from JS -->
+            </section>
+            <!--forecast box -->
+            <section class="futureForecast" id="5dayForecast">
+                    <!-- insert selected city 5-day forecast from JS -->
+            </section>
+        </main>
+        <script src="./Assets/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    </section>
+</body>
+
+</html>
+
